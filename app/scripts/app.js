@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular.module('softvFrostApp', [	
-		'smart-table',
+		//'smart-table',
 		'ngSanitize', 
 		'ngCsv', 
 		'ngTableToCsv',	
