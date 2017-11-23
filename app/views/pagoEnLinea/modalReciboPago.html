@@ -1,0 +1,95 @@
+
+<style type="text/css">
+  
+  .btn-pantone-s {  
+    background: #F7D571;
+  }
+
+  .btn-pantone-s:hover,
+  .btn-pantone-s:active,
+  .btn-pantone-s:focus {
+    background: #F4C53D;
+  }
+
+  .campo {
+      font-color: #333;
+      }
+
+  strong { font-weight: bold;}
+
+  resumen { 
+        font-size: 13pt;
+        font-weight: bold;
+    }
+
+  monto { 
+        font-size: 12pt;
+    }
+
+</style>
+
+
+<div class="modal-header">
+    <button class="close" aria-label="Close" type="button" ng-click="ctrl.cancel()">×</button>
+    <h3 class="modal-title">Recibo de transacción</h3>
+</div>
+<div class="modal-body">
+  <div class="row" style="padding-left:10px;">
+    
+    <div class="col-md-10 col-md-offset-1">
+        <h4>Gracias por realizar su pago. Pago hecho correctamente.</h4>
+    </div>
+    
+      <div class="col-md-5 col-md-offset-1">
+       <strong> {{ ctrl.objRetrieve.interaction.merchant.name }} </strong> <br/>
+        {{ ctrl.objRetrieve.interaction.merchant.address.line1 }} <br/>    
+        {{ ctrl.objRetrieve.interaction.merchant.address.line2 }} <br/>   
+       
+      </div>
+      <div class="col-md-5">
+        Correo electrónico: {{ ctrl.objRetrieve.interaction.merchant.email }} <br/>
+      </div>
+
+       <div class="col-md-10 col-md-offset-1" style = "padding-top: 15px">
+
+        <table style="width:70%">
+            <tr>
+                <td style="font-color:#333"> Fecha </td> 
+                <td> {{ ctrl.dateToday}} {{ctrl.hourToday }}</td>
+            </tr>
+            <tr>
+                <td style="font-color:#333"> ID de transacción  </td>
+                <td>   {{ ctrl.objRetrieve.order.id }} </td>
+            </tr>
+            <tr>
+                <td style="font-color:#333"> Método de pago </td> 
+                <td> {{ ctrl.objRetrieve.sourceOfFunds.provided.card.brand}} <br/>
+                    {{ ctrl.cardRes}}
+                </td>
+            </tr>
+        </table>  
+       </div>    
+    
+        <div class="col-md-10 col-md-offset-1" style = "padding-top: 15px">
+            <resumen>Resumen del pago</resumen>
+            <p class="text-center"> 
+            <strong style="font-color:#cc3999"><monto>{{ ctrl.objRetrieve.order.description }} </monto>
+            {{ctrl.objRetrieve.order.currency }}: <monto>P{{ ctrl.objRetrieve.order.amount }}</monto> 
+            </strong></p>
+        </div>
+      
+            
+
+  </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-pantone-s btn-sm" type="button" ng-click="ctrl.ok()">Aceptar</button>
+</div>
+
+
+
+
+
+
+
+    

@@ -1,0 +1,75 @@
+<form angular-validator-submit="$ctrl.GuardarUsuario()" name="myForm" class="form-horizontal" novalidate angular-validator>
+  <div class="card" style="margin-top:20px; ">
+    <div class="card-head style-default-light" style="padding-top:10px; padding-left:10px;">
+      <header>
+        <strong style="font-weight:bold; border:none; margin-left:10px;">{{$ctrl.titulo}}</strong>
+        <br /><small class="text-muted" style="font-size:14px; margin-left:10px;"><i class="fa fa-home" aria-hidden="true"></i> Configuración>{{$ctrl.titulo}}</small>
+      </header>
+      <div class="tools">
+        <button class="btn btn-default btn-sm" ui-sref="home.provision.usuarios">Cancelar</button>
+        <button class="btn btn-success btn-sm" type="submit">Guardar</button>
+      </div>
+    </div>
+    <div class="card-body" style="margin-bottom:100px;">
+
+      <div class="row ">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-12">
+            <b>Nombre</b>
+            <input type="text" name="nombre" validate-on="dirty" class="form-control" ng-model="$ctrl.Nombre" required-message="'Este campo es obligatorio.'" required>
+          </div>
+          <div class="col-md-12">
+            <b>Usuario</b>
+            <input type="text" class="form-control" ng-change="$ctrl.existe()" ng-model="$ctrl.Descripcion" name="descripcion" validate-on="dirty" required-message="'Este campo es obligatorio.'" required ng-disabled="$ctrl.userText">
+            <small style="color:red" ng-show="$ctrl.isDuplicate">El nombre de usuario ya esta registrado, por favor introduce uno diferente.</small>  
+          </div>
+          <div class="col-md-12">
+            <b>Correo</b>
+            <input type="email" class="form-control" ng-model="$ctrl.Correo" placeholder="correo@mail.com" name="correo" validate-on="dirty" invalid-message="'Formato de correo inválido.'" required-message="'Este campo es obligatorio.'" required>
+          </div>
+          <div class="col-md-12">
+            <br>
+            <b>Selecciona Rol</b>
+            <select class="form-control" ng-options="item as item.Nombre for item in $ctrl.Roles track by item.IdRol" ng-model="$ctrl.Rol" name="rol" validate-on="dirty" required-message="'Este campo es obligatorio.'" required>
+                    <option value="">selecciona</option>
+                  </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+
+          <div class="row text-center">
+            <p class="text-danger"><b><i class="fa fa-key"></i> Ingresa una contraseña segura para la cuenta</b></p>
+          </div>
+
+          <div class="row" ng-show="$ctrl.ValidatePanel">
+            <div class="col-md-8">
+              <b><i class="fa fa-key"></i>  ¿Necesitas modificar la contraseña?</b>
+              <input type="password" class="form-control" ng-model="$ctrl.PassValidate" placeholder="contraseña anterior">
+            </div>
+            <div class="col-md-4">
+              <br>
+              <a class="btn btn-warning btn-sm" ng-click="$ctrl.ValidaPass()">Validar</a>
+            </div>
+          </div>
+          <div class="row" ng-show="$ctrl.passwordPanel">
+            <div class="col-md-12">
+              <b>Contraseña</b>
+              <input ng-if="$ctrl.editar == true" type="Password" class="form-control" ng-model="$ctrl.Contrasena" name="contra" validate-on="dirty" required-message="'Este campo es obligatorio.'" required>
+            </div>
+            <div class="col-md-12">
+              <b>Repite la contraseña</b>
+              <input ng-if="$ctrl.editar == true" type="Password" class="form-control" ng-model="$ctrl.Contrasena2" name="contra" validate-on="dirty" required-message="'Este campo es obligatorio.'" required>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+      </div>
+
+    </div>
+</form>

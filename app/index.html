@@ -1,0 +1,106 @@
+<!doctype html>
+<html ng-app="softvFrostApp">
+
+<head>
+  <meta charset="utf-8">
+  <title ng-bind="$state.current.data.pageTitle">Pago en Línea</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+   <link rel="shortcut icon" href="images/StarGo_Antena.png">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/ng-notify/src/styles/ng-notify.css" />
+  <link rel="stylesheet" href="bower_components/angular-block-ui/dist/angular-block-ui.css" />
+  <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+   <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css' />
+
+  <link type="text/css" rel="stylesheet" href="libs/theme-default/materialadmin.css?1425466319" />
+  <link type="text/css" rel="stylesheet" href="libs/theme-default/font-awesome.min.css?1422529194" />
+  <link type="text/css" rel="stylesheet" href="libs/theme-default/material-design-iconic-font.min.css?1421434286" />
+  <link type="text/css" rel="stylesheet" href="libs/theme-default/libs/rickshaw/rickshaw.css?1422792967" />
+  <link type="text/css" rel="stylesheet" href="libs/theme-default/libs/morris/morris.core.css?1420463396" />
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyBo8Db0Dc56FBW_ZY4dVBlLAzhjQpgZpD0"></script>
+</head>
+
+<body id="mimin" class="menubar-hoverable header-fixed">
+  <div ui-view="loginview"></div>
+  <div ui-view="homeview"></div>
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/ng-notify/src/scripts/ng-notify.js"></script>
+  <script src="bower_components/tg-angular-validator/dist/angular-validator.js"></script>
+  <script src="bower_components/angular-base64/angular-base64.js"></script>
+  <script src="bower_components/ngstorage/ngStorage.js"></script>
+  <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
+  <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+  <script src="bower_components/angular-export-table/export/table-export-directive.js"></script>
+  <script src="bower_components/angular-export-table/export/table-export-option-directive.js"></script>
+  <script src="bower_components/angular-export-table/kayalshri-table-export.jquery.plugin-a891806/table-export.js"></script>
+  <script src="bower_components/angular-export-table/kayalshri-table-export.jquery.plugin-a891806/jquery.base64.js"></script>
+  <script src="bower_components/angular-export-table/kayalshri-table-export.jquery.plugin-a891806/html2canvas.js"></script>
+  <script src="bower_components/angular-export-table/kayalshri-table-export.jquery.plugin-a891806/jspdf/jspdf.js"></script>
+  <script src="bower_components/angular-export-table/kayalshri-table-export.jquery.plugin-a891806/jspdf/libs/base64.js"></script>
+  <script src="bower_components/angular-export-table/kayalshri-table-export.jquery.plugin-a891806/jspdf/libs/sprintf.js"></script>
+  <script src="bower_components/ng-table-to-csv/dist/ng-table-to-csv.js"></script>
+  <script src="bower_components/angular-permission/dist/angular-permission.js"></script>
+  <script src="bower_components/angular-permission/dist/angular-permission-ui.js"></script>
+  <script src="bower_components/angular-permission/dist/angular-permission-ng.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="bower_components/jspdf/dist/jspdf.debug.js"></script>
+  <script src="bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
+  <script src="bower_components/ng-csv/build/ng-csv.min.js"></script>
+  <script src="bower_components/angular-fixed-table-header/src/fixed-table-header.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/modules.js"></script>
+  <script src="scripts/globalService.js"></script>
+
+  <script src="scripts/factories/authFactory.js"></script>
+  <script src="scripts/factories/permissionsFactory.js"></script>
+  <script src="scripts/factories/rolFactory.js"></script>
+  <script src="scripts/factories/permisoFactory.js"></script>
+  <script src="scripts/factories/usuarioFactory.js"></script> 
+  <script src="scripts/factories/pagoEnLineaFactory.js"></script>
+  <script src="scripts/factories/pagoReciboFactory.js"></script>
+
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/login/LoginCtrl.js"></script>  
+  <script src="scripts/controllers/provision/modules.js"></script>
+  <script src="scripts/controllers/configuracion/PermisosCtrl.js"></script>
+  <script src="scripts/controllers/configuracion/UsuariosCtrl.js"></script>
+  <script src="scripts/controllers/configuracion/EditaUsuarioCtrl.js"></script> 
+
+  <script src="scripts/controllers/pagoEnLinea/modules.js"></script> 
+  <script src="scripts/controllers/pagoEnLinea/PagoEnLinea.js"></script>
+  <script src="scripts/controllers/pagoEnLinea/ModalAdelantaPagoCtrl.js"></script>
+  <script src="scripts/controllers/pagoEnLinea/ModalReciboPagoCtrl.js"></script>
+  <script src="scripts/controllers/pagoEnLinea/pagoCancelado.js"></script>
+  <script src="scripts/controllers/pagoEnLinea/pagoRecibo.js"></script>
+  <!-- endbuild -->   
+  
+
+</html>
+

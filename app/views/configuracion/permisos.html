@@ -1,0 +1,79 @@
+<style>
+  td {
+    padding: 2px !important;
+    padding-left: 15px !important;
+  }
+</style>
+<div class="card" style="margin-top:10px;">
+  <div class="card-head style-default-light" style="padding-top:10px; padding-left:10px;">
+    <header>
+      <strong style="font-weight:bold; border:none; margin-left:10px;">Permisos</strong>
+      <br /><small class="text-muted" style="font-size:14px; margin-left:10px;"> <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Inicio</a>><a href="#" class="paginaActiva">Configuración</a></small>
+
+    </header>
+    <div class="tools">
+      <div class="btn-group">
+        <button type="button" class="btn pull-right btn-raised btn-success btn-sm" ng-click="$ctrl.Guardar()" permission permission-only="'permisosAdd'">Guardar</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <b>Selecciona un Rol</b>
+        <select ng-model="$ctrl.Rol" class="form-control input-sm" ng-change="$ctrl.ObtenPermisos();" ng-options="item as item.Nombre for item in $ctrl.Roles track by item.IdRol">
+                     <option value="">Selecciona</option>
+       </select>
+      </div>
+
+    </div>
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Módulo</th>
+          <th>Consultar</th>
+          <th>Agregar</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="x in $ctrl.Modules">
+          <td ng-if="x.tipo == 1"><b>{{x.DisplayName}}</b></td>
+          <td ng-if="x.tipo != 1">{{x.DisplayName}}</td>
+          <td>
+            <div><label class="checkbox-inline checkbox-styled checkbox-info"><input type="checkbox" class="input-sm" ng-model="x.OptSelect"><span></span></label></div>
+
+          </td>
+          <td ng-if="x.tipo != 1">
+            <div><label class="checkbox-inline checkbox-styled checkbox-info"><input type="checkbox"  ng-model="x.OptAdd"><span></span></label></div>
+            <!-- <div class="checkbox-inline checkbox-styled checkbox-info">
+              <input type="checkbox" class="checkbox" name="{{x.IdModule}}Add{{x.IdModule}}" id="{{x.IdModule}}Add{{x.IdModule}}" ng-model="x.OptAdd">
+              <span for="{{x.IdModule}}Add"></span>
+            </div> -->
+          </td>
+          <td ng-if="x.tipo != 1">
+            <div><label class="checkbox-inline checkbox-styled checkbox-info"><input type="checkbox"  ng-model="x.OptUpdate"><span></span></label></div>
+            <!-- <div class="checkbox-inline checkbox-styled checkbox-info">
+              <input type="checkbox" class="checkbox" name="{{x.IdModule}}Update{{x.IdModule}}" id="{{x.IdModule}}Update{{x.IdModule}}" ng-model="x.OptUpdate">
+              <span for="{{x.IdModule}}Update"></span>
+            </div> -->
+          </td>
+          <td ng-if="x.tipo != 1">
+            <div><label class="checkbox-inline checkbox-styled checkbox-info"><input type="checkbox"  ng-model="x.OptDelete"><span></span></label></div>
+            <!-- <div class="checkbox-inline checkbox-styled checkbox-info">
+              <input type="checkbox" class="checkbox" ng-model="x.OptDelete" name="{{x.IdModule}}Delete{{x.IdModule}}" id="{{x.IdModule}}Delete{{x.IdModule}}">
+              <span for="{{x.IdModule}}Delete"></span>
+            </div> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
